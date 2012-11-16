@@ -61,13 +61,16 @@ module FriendlyId
           # Used to test :scoped and :history together
           add_column :restaurants, :city_id, :integer
 
+          # This will be used to test relationships
+          add_column :books, :author_id, :integer
+
           @done = true
         end
 
         private
 
         def slugged_tables
-          ["journalists", "articles", "novelists", "novels", "manuals", "translated_articles"]
+          %w[journalists articles novelists novels manuals translated_articles]
         end
 
         def scoped_tables
@@ -75,7 +78,7 @@ module FriendlyId
         end
 
         def simple_tables
-          ["authors", "books", "publishers", "cities"]
+          %w[authors books publishers cities]
         end
 
         def tables
